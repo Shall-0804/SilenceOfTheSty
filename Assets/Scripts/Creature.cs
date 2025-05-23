@@ -1,88 +1,102 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Creature : MonoBehaviour
 {
+    bool chasing;
+    float distanceToChase = 8f, distanceToLose = 15f, distanceToStop = 2f;
+    [SerializeField] GameObject Player;
+ 
+    Vector3 targetPoint, startPoint;
+
+    NavMeshAgent agent;
+    [SerializeField] Transform[] goals;
+    int destNum = 0;
+
+    float keepChasingTime = 20f;
+    float chaseCounter;
 
     [SerializeField] Animator CreatureAnimator;
-    [SerializeField] GameObject creature;
+    [SerializeField] AudioSource CreatureAudio;
 
-    float moveSpeed = 3.0f;
+    float moveWaitTime = 0;
 
-    float WolkTime = 3.0f;
-    bool moveDestination = false;
-
-    float destinationX = 463;
-    float destinationZ = 616;
-    float randomPosX;
-    float randomPosZ;
-
-    Vector3 Rot = Vector3.zero;
-
-    void Start()
+    private void Start()
     {
-        
+        startPoint = transform.position;
+        agent = GetComponent<NavMeshAgent>();
+        agent.destination = goals[destNum].position;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (CreatureAnimator.GetBool("Move") && !moveDestination)
+        targetPoint = Player.transform.position;
+        targetPoint.y = transform.position.y;
+
+        if (!chasing)
         {
-            if (transform.position.x <= 500)
+            if (Vector3.Distance(transform.position, targetPoint) < distanceToChase)
             {
-                transform.position += transform.forward * moveSpeed * Time.deltaTime;
+                CreatureAnimator.SetBool("Find",true);
+                CreatureAudio.Play();
+                chasing = true;
             }
-            else
+            if (chaseCounter > 0)
             {
-                transform.position += transform.right * moveSpeed * Time.deltaTime;
+                chaseCounter -= Time.deltaTime;
+                if (chaseCounter <= 0)
+                {
+                    nextGoal();
+                }
             }
 
-
-
-
-
+            if (agent.remainingDistance < 0.5f)
+            {
+                CreatureAnimator.SetBool("Find", false);
+                CreatureAudio.Stop();
+                moveWaitTime -= Time.deltaTime;
+               if(moveWaitTime <= 0)
+               {
+                    nextGoal();
+                    moveWaitTime = 5.0f;
+               }   
+               
+                
+            }
         }
         else
         {
-            
 
-            WolkTime -= Time.deltaTime;
-            if (WolkTime < 0)
+            if (Vector3.Distance(transform.position, targetPoint) > distanceToStop)
             {
-                CreatureAnimator.SetBool("Move", false);
-                WolkTime = 3.0f;
-                transform.eulerAngles = new Vector3(0, 0, 0);
-                moveDestination = false;
+                CreatureAnimator.SetBool("Find", true);
+                agent.destination = targetPoint;
+            }
+            else
+            {
+                CreatureAnimator.SetBool("Find", true);
+                agent.destination = transform.position;
             }
 
+            if (Vector3.Distance(transform.position, targetPoint) > distanceToLose)
+            {
+                chasing = false;
+                chaseCounter = keepChasingTime;
+            }
         }
-
-
-
-        if(transform.position.x >= 500)
-        {
-            CreatureAnimator.SetBool("Move", true);
-            moveDestination = true;
-        }
-
-        if (transform.position.z >= 700)
-        {
-            CreatureAnimator.SetBool("Move", true);
-            moveDestination = true;
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
+    void nextGoal()
+    {
+
+        destNum = Random.Range(0, 13);
+        agent.destination = goals[destNum].position;
+
+    }
+
 }
+  
+
+
+
+    
+
