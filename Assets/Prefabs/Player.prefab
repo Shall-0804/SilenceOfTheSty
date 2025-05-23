@@ -2693,7 +2693,7 @@ GameObject:
   - component: {fileID: 7346954113113425514}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2784,8 +2784,9 @@ MonoBehaviour:
   WaterHeight: 15.5
   cam: {fileID: 1041939755673768723}
   webGLRightClickRotation: 1
+  ST: {fileID: 0}
   PlayerAnimation: {fileID: 0}
-  Spine01: {fileID: 0}
+  FlashLight: {fileID: 0}
 --- !u!1 &5959020053454822492
 GameObject:
   m_ObjectHideFlags: 0

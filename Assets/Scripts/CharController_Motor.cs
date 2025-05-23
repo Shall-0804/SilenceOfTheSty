@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CharController_Motor : MonoBehaviour {
@@ -124,6 +125,15 @@ public class CharController_Motor : MonoBehaviour {
 	}
 
 
+    public void OnTriggerEnter(Collider other)
+    {
+		Debug.Log(other);
+        if (other.gameObject.name == "FindArea")
+        {
+            SceneManager.LoadScene("DeathScene");
+        }
 
+
+    }
 
 }

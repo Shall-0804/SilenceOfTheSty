@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+
 public class Creature : MonoBehaviour
 {
     bool chasing;
@@ -12,6 +13,7 @@ public class Creature : MonoBehaviour
     NavMeshAgent agent;
     [SerializeField] Transform[] goals;
     int destNum = 0;
+    [SerializeField] int goalsNum;
 
     float keepChasingTime = 20f;
     float chaseCounter;
@@ -36,7 +38,7 @@ public class Creature : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, targetPoint) < distanceToChase)
             {
-                CreatureAnimator.SetBool("Find",true);
+                
                 CreatureAudio.Play();
                 chasing = true;
             }
@@ -51,13 +53,13 @@ public class Creature : MonoBehaviour
 
             if (agent.remainingDistance < 0.5f)
             {
-                CreatureAnimator.SetBool("Find", false);
+                
                 CreatureAudio.Stop();
                 moveWaitTime -= Time.deltaTime;
                if(moveWaitTime <= 0)
                {
                     nextGoal();
-                    moveWaitTime = 5.0f;
+                    moveWaitTime = 3.0f;
                }   
                
                 
@@ -68,12 +70,11 @@ public class Creature : MonoBehaviour
 
             if (Vector3.Distance(transform.position, targetPoint) > distanceToStop)
             {
-                CreatureAnimator.SetBool("Find", true);
+                
                 agent.destination = targetPoint;
             }
             else
             {
-                CreatureAnimator.SetBool("Find", true);
                 agent.destination = transform.position;
             }
 
@@ -88,10 +89,17 @@ public class Creature : MonoBehaviour
     void nextGoal()
     {
 
-        destNum = Random.Range(0, 13);
+        destNum = Random.Range(0, goalsNum);
         agent.destination = goals[destNum].position;
 
     }
+
+    
+
+
+
+
+
 
 }
   

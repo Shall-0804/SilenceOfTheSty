@@ -293,7 +293,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d9d4a12a832cbd4c83834c8910e0b61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  goals: []
+  goalsNum: 0
   CreatureAnimator: {fileID: 0}
+  CreatureAudio: {fileID: 0}
 --- !u!143 &-832509425533846916
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1547,8 +1551,8 @@ Transform:
   m_GameObject: {fileID: 3535010319055614533}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0.5}
+  m_LocalScale: {x: 1, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7156188480896602137}
