@@ -23,7 +23,7 @@ public class CharController_Motor : MonoBehaviour {
 	[SerializeField] Slider ST;
 	[SerializeField] Animator PlayerAnimation;	
 	[SerializeField] GameObject FlashLight;
-
+	
 
 	void Start()
 	{
@@ -64,8 +64,7 @@ public class CharController_Motor : MonoBehaviour {
 			st -= stDownSpeed * Time.deltaTime;
 		}
 		
-			
-		
+
 
 		if (st > 0)
 		{
@@ -73,8 +72,8 @@ public class CharController_Motor : MonoBehaviour {
 		}
 		else if (st <= 0)
 		{
-            
-            speed = normalspeed;
+
+			speed = normalspeed;
 		}
 
         st += Time.deltaTime;
@@ -99,13 +98,18 @@ public class CharController_Motor : MonoBehaviour {
 
 
 
-		if (webGLRightClickRotation) {
-			if (Input.GetKey (KeyCode.Mouse0)) {
+		if (webGLRightClickRotation) 
+		{
+			if (Input.GetKey (KeyCode.Mouse0)) 
+			{
 				CameraRotation (cam, rotX, rotY);
 			}
-		} else if (!webGLRightClickRotation) {
+		} 
+		else if (!webGLRightClickRotation)
+		{
 			CameraRotation (cam, rotX, rotY);
 		}
+
 
 		movement = transform.rotation * movement;
 		character.Move (movement * Time.deltaTime);

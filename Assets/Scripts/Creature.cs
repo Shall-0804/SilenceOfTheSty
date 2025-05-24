@@ -5,7 +5,7 @@ using UnityEngine.AI;
 public class Creature : MonoBehaviour
 {
     bool chasing;
-    float distanceToChase = 8f, distanceToLose = 15f, distanceToStop = 2f;
+    float distanceToChase = 10f, distanceToLose = 15f, distanceToStop = 2f;
     [SerializeField] GameObject Player;
  
     Vector3 targetPoint, startPoint;
@@ -20,6 +20,7 @@ public class Creature : MonoBehaviour
 
     [SerializeField] Animator CreatureAnimator;
     [SerializeField] AudioSource CreatureAudio;
+   
 
     float moveWaitTime = 0;
 
@@ -36,9 +37,11 @@ public class Creature : MonoBehaviour
 
         if (!chasing)
         {
+            agent.speed = 3.0f;
+
+
             if (Vector3.Distance(transform.position, targetPoint) < distanceToChase)
             {
-                
                 CreatureAudio.Play();
                 chasing = true;
             }
@@ -55,11 +58,12 @@ public class Creature : MonoBehaviour
             {
                 
                 CreatureAudio.Stop();
+
                 moveWaitTime -= Time.deltaTime;
                if(moveWaitTime <= 0)
                {
                     nextGoal();
-                    moveWaitTime = 3.0f;
+                    moveWaitTime = 1.0f;
                }   
                
                 
@@ -67,6 +71,9 @@ public class Creature : MonoBehaviour
         }
         else
         {
+           
+            agent.speed = 8.0f;
+
 
             if (Vector3.Distance(transform.position, targetPoint) > distanceToStop)
             {
