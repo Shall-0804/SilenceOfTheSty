@@ -20,7 +20,12 @@ public class Creature : MonoBehaviour
 
     [SerializeField] Animator CreatureAnimator;
     [SerializeField] AudioSource CreatureAudio;
-   
+    AudioSource BeastModeAudio;
+
+    //時間で追いかけるようにするため
+    float beastModeTime = 30.0f;
+    bool Isbeast = false;
+
 
     float moveWaitTime = 0;
 
@@ -29,55 +34,101 @@ public class Creature : MonoBehaviour
         startPoint = transform.position;
         agent = GetComponent<NavMeshAgent>();
         agent.destination = goals[destNum].position;
+        BeastModeAudio =  Player.GetComponent<AudioSource>();
     }
     private void Update()
     {
         targetPoint = Player.transform.position;
         targetPoint.y = transform.position.y;
 
-        if (!chasing)
+    
+
+        if (!Isbeast)
         {
-            agent.speed = 3.0f;
+            //ビーストモードになるまでのカウント
+            beastModeTime -= Time.deltaTime;
 
-
-            if (Vector3.Distance(transform.position, targetPoint) < distanceToChase)
+            if (beastModeTime <= 0)
             {
-                CreatureAudio.Play();
-                chasing = true;
+                Isbeast = true;
             }
-            if (chaseCounter > 0)
+
+
+
+            if (!chasing)
             {
-                chaseCounter -= Time.deltaTime;
-                if (chaseCounter <= 0)
+                agent.speed = 3.0f;
+
+
+                if (Vector3.Distance(transform.position, targetPoint) < distanceToChase)
                 {
-                    nextGoal();
+                    CreatureAudio.Play();
+                    chasing = true;
+                }
+                if (chaseCounter > 0)
+                {
+                    chaseCounter -= Time.deltaTime;
+                    if (chaseCounter <= 0)
+                    {
+                        nextGoal();
+                    }
+                }
+
+                if (agent.remainingDistance < 0.5f)
+                {
+
+                    CreatureAudio.Stop();
+
+                    moveWaitTime -= Time.deltaTime;
+                    if (moveWaitTime <= 0)
+                    {
+                        nextGoal();
+                        moveWaitTime = 1.0f;
+                    }
+
+
+                }
+            }
+            else
+            {
+
+                agent.speed = 8.0f;
+
+
+                if (Vector3.Distance(transform.position, targetPoint) > distanceToStop)
+                {
+
+                    agent.destination = targetPoint;
+                }
+                else
+                {
+                    agent.destination = transform.position;
+                }
+
+                if (Vector3.Distance(transform.position, targetPoint) > distanceToLose)
+                {
+                    chasing = false;
+                    chaseCounter = keepChasingTime;
                 }
             }
 
-            if (agent.remainingDistance < 0.5f)
-            {
-                
-                CreatureAudio.Stop();
 
-                moveWaitTime -= Time.deltaTime;
-               if(moveWaitTime <= 0)
-               {
-                    nextGoal();
-                    moveWaitTime = 1.0f;
-               }   
-               
-                
-            }
         }
-        else
+        else if (Isbeast)
         {
-           
-            agent.speed = 8.0f;
+            BeastModeAudio.Play();
+            agent.speed = 6.0f;
+
+            beastModeTime += Time.deltaTime;
+            if (beastModeTime >= 30.0f)
+            {
+                Isbeast = false;  
+            }
 
 
             if (Vector3.Distance(transform.position, targetPoint) > distanceToStop)
             {
-                
+
                 agent.destination = targetPoint;
             }
             else
@@ -85,12 +136,18 @@ public class Creature : MonoBehaviour
                 agent.destination = transform.position;
             }
 
-            if (Vector3.Distance(transform.position, targetPoint) > distanceToLose)
+            if (Vector3.Distance(transform.position, targetPoint) < distanceToChase)
             {
-                chasing = false;
-                chaseCounter = keepChasingTime;
+                CreatureAudio.Play();
             }
+
+
+
+
         }
+
+
+
 
     }
     void nextGoal()
