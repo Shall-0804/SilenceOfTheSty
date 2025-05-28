@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 
 public class Creature : MonoBehaviour
 {
     bool chasing;
-    float distanceToChase = 10f, distanceToLose = 15f, distanceToStop = 2f;
+    float distanceToChase = 15f, distanceToLose = 15f, distanceToStop = 2f;
     [SerializeField] GameObject Player;
  
     Vector3 targetPoint, startPoint;
@@ -15,7 +16,7 @@ public class Creature : MonoBehaviour
     int destNum = 0;
     [SerializeField] int goalsNum;
 
-    float keepChasingTime = 20f;
+    float keepChasingTime = 20.0f;
     float chaseCounter;
 
     [SerializeField] Animator CreatureAnimator;
@@ -25,7 +26,7 @@ public class Creature : MonoBehaviour
     //時間で追いかけるようにするため
     float beastModeTime = 30.0f;
     bool Isbeast = false;
-
+    [SerializeField] Slider BeastTimeSlider;
 
     float moveWaitTime = 0;
 
@@ -45,9 +46,10 @@ public class Creature : MonoBehaviour
 
         if (!Isbeast)
         {
+            
             //ビーストモードになるまでのカウント
             beastModeTime -= Time.deltaTime;
-
+            BeastTimeSlider.value = beastModeTime * 10;
             if (beastModeTime <= 0)
             {
                 Isbeast = true;
@@ -122,6 +124,7 @@ public class Creature : MonoBehaviour
             beastModeTime += Time.deltaTime;
             if (beastModeTime >= 30.0f)
             {
+                beastModeTime = 30.0f;
                 Isbeast = false;  
             }
 

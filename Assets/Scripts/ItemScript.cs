@@ -16,6 +16,7 @@ public class ItemScript : MonoBehaviour
     [SerializeField] GameObject takenFlashlight;
 
     [SerializeField] GameObject ItemNotkeyText;
+    [SerializeField] GameObject GetkeyText;
 
     //ÉâÉCÉgêÿÇËë÷Ç¶
     bool LightChange = true;
@@ -65,16 +66,15 @@ public class ItemScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && TakeItem01)
         {
             Item01 = true;
+            textTime = 2.0f;
 
             Itemkey01.SetActive(false);
-
-
-        }
-
-        if (Item01)
-        {
+            GetkeyText.SetActive(true);
             ImageItem01.SetActive(true);
+
         }
+
+        
 
         if(Input.GetKeyDown (KeyCode.Alpha1))
         {
@@ -113,6 +113,7 @@ public class ItemScript : MonoBehaviour
         if (textTime <= 0)
         {
             ItemNotkeyText.SetActive(false);
+            GetkeyText.SetActive(false );
         }
 
 
