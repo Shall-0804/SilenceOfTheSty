@@ -119,6 +119,7 @@ public class Creature : MonoBehaviour
         else if (Isbeast)
         {
             BeastModeAudio.Play();
+
             agent.speed = 6.0f;
 
             beastModeTime += Time.deltaTime;
