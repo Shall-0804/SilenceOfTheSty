@@ -63,7 +63,7 @@ public class ItemScript : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && TakeItem01)
+        if (Input.GetKeyDown(KeyCode.E) && TakeItem01 && !Item01)
         {
             Item01 = true;
             textTime = 2.0f;
@@ -100,8 +100,9 @@ public class ItemScript : MonoBehaviour
             takenItem01.SetActive(false);
             ImageItem01.SetActive(false);
             Item01 = false;
+            TakeItem01 = false;
         }
-        else if(Input.GetKeyDown(KeyCode.E) && OpenBox && !Item01)
+        else if(Input.GetKeyDown(KeyCode.E) && OpenBox && !Item01 && !IsBoxOpen)
         {
             ItemNotkeyText.SetActive(true);
             textTime = 2.0f;
@@ -126,14 +127,14 @@ public class ItemScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "Item")
+        if(other.gameObject.tag == "Item")
         {Å@
             TakekeyE.SetActive(true);
             TakeItem01 = true;
 
         }
 
-        if (other.gameObject.name == "Box")
+        if (other.gameObject.tag == "Box")
         {
             TakeBoxE.SetActive(true);
             OpenBox = true;
@@ -145,14 +146,14 @@ public class ItemScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == "Item")
+        if (other.gameObject.tag == "Item")
         {
             TakekeyE.SetActive(false);
             TakeItem01 = false;
         }
 
 
-        if (other.gameObject.name == "Box")
+        if (other.gameObject.tag == "Box")
         {
             TakeBoxE.SetActive(false);
             OpenBox = false;

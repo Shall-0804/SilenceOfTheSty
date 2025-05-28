@@ -27,6 +27,8 @@ public class Creature : MonoBehaviour
     float beastModeTime = 30.0f;
     bool Isbeast = false;
     [SerializeField] Slider BeastTimeSlider;
+    [SerializeField] Image BeastImage;
+
 
     float moveWaitTime = 0;
 
@@ -42,17 +44,20 @@ public class Creature : MonoBehaviour
         targetPoint = Player.transform.position;
         targetPoint.y = transform.position.y;
 
-    
+        BeastTimeSlider.value = beastModeTime * 10;
 
         if (!Isbeast)
         {
             
             //ビーストモードになるまでのカウント
             beastModeTime -= Time.deltaTime;
-            BeastTimeSlider.value = beastModeTime * 10;
+            
             if (beastModeTime <= 0)
             {
+                BeastModeAudio.Play();
+                BeastTimeSlider.maxValue = 100.0f;
                 Isbeast = true;
+                BeastImage.color = Color.red;
             }
 
 
@@ -118,15 +123,18 @@ public class Creature : MonoBehaviour
         }
         else if (Isbeast)
         {
-            BeastModeAudio.Play();
+            
 
             agent.speed = 6.0f;
 
+
             beastModeTime += Time.deltaTime;
-            if (beastModeTime >= 30.0f)
+            if (beastModeTime >= 10.0f)
             {
-                beastModeTime = 30.0f;
-                Isbeast = false;  
+                BeastTimeSlider.maxValue = 400.0f;
+                beastModeTime = 40.0f;
+                Isbeast = false;
+                BeastImage.color = Color.white;
             }
 
 
