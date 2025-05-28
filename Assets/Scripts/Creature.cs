@@ -55,7 +55,7 @@ public class Creature : MonoBehaviour
             if (beastModeTime <= 0)
             {
                 BeastModeAudio.Play();
-                BeastTimeSlider.maxValue = 100.0f;
+                BeastTimeSlider.maxValue = 150.0f;
                 Isbeast = true;
                 BeastImage.color = Color.red;
             }
@@ -129,10 +129,10 @@ public class Creature : MonoBehaviour
 
 
             beastModeTime += Time.deltaTime;
-            if (beastModeTime >= 10.0f)
+            if (beastModeTime >= 15.0f)
             {
-                BeastTimeSlider.maxValue = 400.0f;
-                beastModeTime = 40.0f;
+                BeastTimeSlider.maxValue = 500.0f;
+                beastModeTime = 50.0f;
                 Isbeast = false;
                 BeastImage.color = Color.white;
             }

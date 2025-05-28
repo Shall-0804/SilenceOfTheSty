@@ -27,13 +27,20 @@ public class ChangeScene : MonoBehaviour
         }
 
 
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            chengeTime = 2.0f;
+        }
+
+
+
 
     }
 
     public void OnClick()
     {
 
-        chengeTime = 3.0f;
+        chengeTime = 2.0f;
 
     }
 
