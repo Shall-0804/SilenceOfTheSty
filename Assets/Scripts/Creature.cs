@@ -3,7 +3,7 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 
 
-public class Creature : MonoBehaviour
+public class Creature : MonoBehaviour 
 {
     bool chasing;
     float distanceToChase = 15f, distanceToLose = 15f, distanceToStop = 2f;
@@ -28,6 +28,8 @@ public class Creature : MonoBehaviour
     bool Isbeast = false;
     [SerializeField] Slider BeastTimeSlider;
     [SerializeField] Image BeastImage;
+
+    [SerializeField] AudioSource HeartAudio;
 
 
     float moveWaitTime = 0;
@@ -159,6 +161,18 @@ public class Creature : MonoBehaviour
         }
 
 
+        if (Vector3.Distance(transform.position, targetPoint) < 40)
+        {
+            ElectoroHeart.distanceCreature = true;
+            HeartAudio.volume = 0.4f;
+            HeartAudio.pitch = 1.5f;
+        }
+        else if (Vector3.Distance(transform.position, targetPoint) >= 40)
+        {
+            ElectoroHeart.distanceCreature = false;
+            HeartAudio.volume = 0.1f;
+            HeartAudio.pitch = 0.7f;
+        }
 
 
     }
