@@ -24,7 +24,7 @@ public class Creature : MonoBehaviour
     AudioSource BeastModeAudio;
 
     //ŽžŠÔ‚Å’Ç‚¢‚©‚¯‚é‚æ‚¤‚É‚·‚é‚½‚ß
-    float beastModeTime = 30.0f;
+    float beastModeTime = 50.0f;
     bool Isbeast = false;
     [SerializeField] Slider BeastTimeSlider;
     [SerializeField] Image BeastImage;
@@ -135,8 +135,8 @@ public class Creature : MonoBehaviour
             beastModeTime += Time.deltaTime;
             if (beastModeTime >= 15.0f)
             {
-                BeastTimeSlider.maxValue = 500.0f;
-                beastModeTime = 50.0f;
+                BeastTimeSlider.maxValue = 900.0f;
+                beastModeTime = 90.0f;
                 Isbeast = false;
                 CreatureAnimator.speed = 1;
                 BeastImage.color = Color.white;
