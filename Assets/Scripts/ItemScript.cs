@@ -18,6 +18,11 @@ public class ItemScript : MonoBehaviour
     [SerializeField] GameObject ItemNotkeyText;
     [SerializeField] GameObject GetkeyText;
 
+    [SerializeField] GameObject ItemGun;
+    [SerializeField] GameObject ImageGun;
+    [SerializeField] GameObject TakenGun;
+    [SerializeField] Animator PlayerGun;
+
     //ライト切り替え
     bool LightChange = true;
     //アイテム01が取れる状態かどうか
@@ -31,6 +36,9 @@ public class ItemScript : MonoBehaviour
     //手に持っているアイテムの判定
     bool handsFlashLighat = true;
     bool handsItem01 = false;
+    //銃を持っているか
+    bool itemGun = false;
+
     //テキストを表示しておく時間
     float textTime;
 
@@ -63,6 +71,17 @@ public class ItemScript : MonoBehaviour
 
         }
 
+
+        if (Input.GetKeyDown(KeyCode.E) && !itemGun && OpenBox && IsBoxOpen)
+        {
+            ItemGun.SetActive(false);
+            ImageGun.SetActive(true);
+            itemGun = true;
+
+        }
+
+
+
         if (Input.GetKeyDown(KeyCode.E) && TakeItem01 && !Item01)
         {
             Item01 = true;
@@ -79,9 +98,11 @@ public class ItemScript : MonoBehaviour
         if(Input.GetKeyDown (KeyCode.Alpha1))
         {
             takenFlashlight.SetActive(true);
-            takenItem01.SetActive(false); 
+            takenItem01.SetActive(false);
+            TakenGun.SetActive(false);
             handsFlashLighat = true;
             handsItem01 = false;
+            PlayerGun.SetBool("UseGun", false);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2) && Item01)
@@ -92,8 +113,24 @@ public class ItemScript : MonoBehaviour
             handsItem01 =true;
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha2) && itemGun)
+        {
+            takenFlashlight.SetActive(false);
+            TakenGun.SetActive(true);
+            handsFlashLighat = false;
+            PlayerGun.SetBool("UseGun", true);
+        }
 
-        if(Input.GetKeyDown(KeyCode.E) && handsItem01 && OpenBox)
+
+
+
+
+
+
+
+
+
+        if (Input.GetKeyDown(KeyCode.E) && handsItem01 && OpenBox)
         {
             BoxAnimation.SetBool("OpenBox", true);
             IsBoxOpen = true;
@@ -110,7 +147,13 @@ public class ItemScript : MonoBehaviour
 
         }
 
-        textTime -= Time.deltaTime;
+        
+
+
+
+
+
+            textTime -= Time.deltaTime;
         if (textTime <= 0)
         {
             ItemNotkeyText.SetActive(false);

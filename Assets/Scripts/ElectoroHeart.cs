@@ -4,7 +4,8 @@ using UnityEngine;
 public class ElectoroHeart : MonoBehaviour
 {
     [SerializeField] TMP_Text HeartText;
-
+    [SerializeField] Animator HeartAnimator;
+    
     float heatTime = 1.0f;
     int heart;
     public static bool distanceCreature = false;
@@ -14,6 +15,7 @@ public class ElectoroHeart : MonoBehaviour
     {
         if (!distanceCreature)
         {
+            HeartAnimator.speed = 1;
             heatTime -= Time.deltaTime;
             if (heatTime < 0)
             {
@@ -25,6 +27,7 @@ public class ElectoroHeart : MonoBehaviour
         }
         else
         {
+            HeartAnimator.speed = 2;
             heatTime -= Time.deltaTime;
             if (heatTime < 0)
             {
