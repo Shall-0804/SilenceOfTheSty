@@ -51,6 +51,7 @@ public class ItemScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //ライト切り替え
         if (Input.GetKeyDown(KeyCode.R) && handsFlashLighat)
         {
 
@@ -71,7 +72,7 @@ public class ItemScript : MonoBehaviour
 
         }
 
-
+        //銃をとる
         if (Input.GetKeyDown(KeyCode.E) && !itemGun && OpenBox && IsBoxOpen)
         {
             ItemGun.SetActive(false);
@@ -81,7 +82,7 @@ public class ItemScript : MonoBehaviour
         }
 
 
-
+        //鍵をとる
         if (Input.GetKeyDown(KeyCode.E) && TakeItem01 && !Item01)
         {
             Item01 = true;
@@ -94,7 +95,7 @@ public class ItemScript : MonoBehaviour
         }
 
         
-
+        //１番のきーををしたときフラッシュライトに切り替える
         if(Input.GetKeyDown (KeyCode.Alpha1))
         {
             takenFlashlight.SetActive(true);
@@ -105,6 +106,7 @@ public class ItemScript : MonoBehaviour
             PlayerGun.SetBool("UseGun", false);
         }
 
+        //鍵を所持していて2番のキーを押したとき
         if (Input.GetKeyDown(KeyCode.Alpha2) && Item01)
         {
             takenFlashlight.SetActive(false);
@@ -112,7 +114,7 @@ public class ItemScript : MonoBehaviour
             handsFlashLighat = false;  
             handsItem01 =true;
         }
-
+        //銃を所持していて2番のキーを押したとき
         if (Input.GetKeyDown(KeyCode.Alpha2) && itemGun)
         {
             takenFlashlight.SetActive(false);
@@ -129,7 +131,7 @@ public class ItemScript : MonoBehaviour
 
 
 
-
+        //箱を開ける
         if (Input.GetKeyDown(KeyCode.E) && handsItem01 && OpenBox)
         {
             BoxAnimation.SetBool("OpenBox", true);
@@ -139,7 +141,7 @@ public class ItemScript : MonoBehaviour
             Item01 = false;
             TakeItem01 = false;
         }
-        else if(Input.GetKeyDown(KeyCode.E) && OpenBox && !Item01 && !IsBoxOpen)
+        else if(Input.GetKeyDown(KeyCode.E) && OpenBox && !Item01 && !IsBoxOpen)//鍵を持っていないとき
         {
             ItemNotkeyText.SetActive(true);
             textTime = 2.0f;
@@ -147,14 +149,17 @@ public class ItemScript : MonoBehaviour
 
         }
 
-        
 
 
 
 
 
+        //テキストを一定時間で消す
+        if (textTime > 0)
+        {
             textTime -= Time.deltaTime;
-        if (textTime <= 0)
+        }
+        else if (textTime <= 0)
         {
             ItemNotkeyText.SetActive(false);
             GetkeyText.SetActive(false );
