@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Box
   - Item
+  - Bullet
   layers:
   - Default
   - TransparentFX

@@ -132,7 +132,7 @@ public class CharController_Motor : MonoBehaviour {
     public void OnTriggerEnter(Collider other)
     {
 		Debug.Log(other);
-        if (other.gameObject.name == "FindArea")
+        if (other.gameObject.name == "Creature")
         {
             SceneManager.LoadScene("DeathScene");
         }

@@ -20,6 +20,7 @@ public class Creature : MonoBehaviour
     float chaseCounter;
 
     [SerializeField] Animator CreatureAnimator;
+    [SerializeField] Animator CreatureAnimator2;
     [SerializeField] AudioSource CreatureAudio;
     AudioSource BeastModeAudio;
 
@@ -31,7 +32,7 @@ public class Creature : MonoBehaviour
 
     [SerializeField] AudioSource HeartAudio;
 
-
+    bool death;
     float moveWaitTime = 0;
 
     private void Start()
@@ -43,6 +44,14 @@ public class Creature : MonoBehaviour
     }
     private void Update()
     {
+        //Ž€‚ñ‚¾‚çŽ~‚ß‚é
+        if (death) 
+        {
+            CreatureAudio.Stop(); 
+            return; 
+        }
+
+
         targetPoint = Player.transform.position;
         targetPoint.y = transform.position.y;
 
@@ -58,6 +67,7 @@ public class Creature : MonoBehaviour
             {
                 BeastModeAudio.Play();
                 CreatureAnimator.speed = 2;
+                CreatureAnimator2.speed = 2;
                 BeastTimeSlider.maxValue = 150.0f;
                 Isbeast = true;
                 BeastImage.color = Color.red;
@@ -74,6 +84,7 @@ public class Creature : MonoBehaviour
                 {
                     CreatureAudio.Play();
                     CreatureAnimator.speed = 2;
+                    CreatureAnimator2.speed = 2;
                     chasing = true;
                 }
                 if (chaseCounter > 0)
@@ -139,6 +150,7 @@ public class Creature : MonoBehaviour
                 beastModeTime = 90.0f;
                 Isbeast = false;
                 CreatureAnimator.speed = 1;
+                CreatureAnimator2.speed = 1;
                 BeastImage.color = Color.white;
             }
 
@@ -187,8 +199,17 @@ public class Creature : MonoBehaviour
 
     }
 
-    
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Bullet")
+        {
+            CreatureAnimator.SetBool("Death", true);
+            CreatureAnimator2.SetBool("Death", true);
+            death = true;
+            Debug.Log("Ž€‚ñ‚¾");
+        }
+    }
 
 
 

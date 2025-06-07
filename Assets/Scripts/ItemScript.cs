@@ -22,6 +22,7 @@ public class ItemScript : MonoBehaviour
     [SerializeField] GameObject ImageGun;
     [SerializeField] GameObject TakenGun;
     [SerializeField] Animator PlayerGun;
+    [SerializeField] GameObject BulletRemainTextObject;
 
     //ÉâÉCÉgêÿÇËë÷Ç¶
     bool LightChange = true;
@@ -101,6 +102,7 @@ public class ItemScript : MonoBehaviour
             takenFlashlight.SetActive(true);
             takenItem01.SetActive(false);
             TakenGun.SetActive(false);
+            BulletRemainTextObject.SetActive(false);
             handsFlashLighat = true;
             handsItem01 = false;
             PlayerGun.SetBool("UseGun", false);
@@ -119,6 +121,7 @@ public class ItemScript : MonoBehaviour
         {
             takenFlashlight.SetActive(false);
             TakenGun.SetActive(true);
+            BulletRemainTextObject.SetActive(true);    
             handsFlashLighat = false;
             PlayerGun.SetBool("UseGun", true);
         }
