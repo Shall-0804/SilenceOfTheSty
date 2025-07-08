@@ -23176,6 +23176,7 @@ MonoBehaviour:
   ImageGun: {fileID: 0}
   TakenGun: {fileID: 0}
   PlayerGun: {fileID: 0}
+  BulletRemainTextObject: {fileID: 0}
 --- !u!82 &3850720966520001444
 AudioSource:
   m_ObjectHideFlags: 0
