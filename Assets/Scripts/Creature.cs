@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -207,6 +208,7 @@ public class Creature : MonoBehaviour
             CreatureAnimator.SetBool("Death", true);
             CreatureAnimator2.SetBool("Death", true);
             death = true;
+            SceneManager.LoadScene("TrueEnd");
             Debug.Log("Ž€‚ñ‚¾");
         }
     }
