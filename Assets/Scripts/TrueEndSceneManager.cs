@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TrueEnd : MonoBehaviour
+public class TrueEndSceneManager : MonoBehaviour
 {
     [SerializeField] GameObject Camera1;
     [SerializeField] GameObject Camera2;

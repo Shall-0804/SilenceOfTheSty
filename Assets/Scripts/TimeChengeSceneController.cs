@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TimeChengeScene : MonoBehaviour
+public class TimeChengeSceneController : MonoBehaviour
 {
     [SerializeField] GameObject CAMERA;
 

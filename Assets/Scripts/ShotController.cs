@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI.Table;
 
-public class ShotScript : MonoBehaviour
+public class ShotController : MonoBehaviour
 {
     [SerializeField] Animator ShotAnim;
     [SerializeField] GameObject Muzzleflash;

@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class ElectoroHeart : MonoBehaviour
+public class ElectoroHeartManager : MonoBehaviour
 {
     [SerializeField] TMP_Text HeartText;
     [SerializeField] Animator HeartAnimator;

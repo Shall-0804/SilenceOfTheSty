@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ItemScript : MonoBehaviour
+public class ItemManager : MonoBehaviour
 {
     [SerializeField] GameObject Light;
    

@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterFloat : MonoBehaviour {
+public class WaterFloat : MonoBehaviour 
+{
 
 
 	public float WaterHeight = 15.5f;

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class OPCreature : MonoBehaviour
+public class OPCreatureController : MonoBehaviour
 {
     bool chasing;
     float distanceToChase = 15f, distanceToLose = 15f, distanceToStop = 2f;

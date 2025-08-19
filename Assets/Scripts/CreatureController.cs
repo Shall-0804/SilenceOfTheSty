@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-public class Creature : MonoBehaviour 
+public class CreatureController : MonoBehaviour 
 {
     bool chasing;
     float distanceToChase = 15f, distanceToLose = 15f, distanceToStop = 2f;
@@ -179,13 +179,13 @@ public class Creature : MonoBehaviour
 
         if (Vector3.Distance(transform.position, targetPoint) < 40)
         {
-            ElectoroHeart.distanceCreature = true;
+            ElectoroHeartManager.distanceCreature = true;
             HeartAudio.volume = 0.4f;
             HeartAudio.pitch = 1.5f;
         }
         else if (Vector3.Distance(transform.position, targetPoint) >= 40)
         {
-            ElectoroHeart.distanceCreature = false;
+            ElectoroHeartManager.distanceCreature = false;
             HeartAudio.volume = 0.1f;
             HeartAudio.pitch = 0.7f;
         }

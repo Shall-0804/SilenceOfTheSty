@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BulletScript : MonoBehaviour
+public class BulletMoveController : MonoBehaviour
 {
     [SerializeField] Rigidbody BulletRb;
 
