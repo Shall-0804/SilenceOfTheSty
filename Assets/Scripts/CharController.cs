@@ -2,7 +2,8 @@
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class CharController : MonoBehaviour {
+public class CharController : MonoBehaviour 
+{
 
 	[SerializeField] float normalspeed = 3.0f;
     float sprintSpeed = 10.0f;
