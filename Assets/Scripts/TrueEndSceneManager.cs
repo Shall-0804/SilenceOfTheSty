@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TrueEndSceneManager : MonoBehaviour
 {
@@ -8,14 +9,23 @@ public class TrueEndSceneManager : MonoBehaviour
     [SerializeField] Animator TrueCreatureAnim2;
     [SerializeField] AudioSource TrueCreaTureAudio;
 
+    float time = 0f;
     void Update()
     {
-        
+        if (time > 0f)
+        {
+            time -= Time.deltaTime;
+            if (time < 0f)
+            {
+                SceneManager.LoadScene("Title");
+            }
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Bullet")
         {
+            time = 7f;
             TrueCreaTureAudio.Play();
             TrueCreatureAnim1.SetBool("EndAnim", true);
             TrueCreatureAnim2.SetBool("EndAnim", true);
