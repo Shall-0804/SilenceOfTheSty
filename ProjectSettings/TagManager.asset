@@ -7,6 +7,7 @@ TagManager:
   - Box
   - Item
   - Bullet
+  - Door
   layers:
   - Default
   - TransparentFX

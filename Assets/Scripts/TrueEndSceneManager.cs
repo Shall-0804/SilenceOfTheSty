@@ -17,6 +17,8 @@ public class TrueEndSceneManager : MonoBehaviour
             time -= Time.deltaTime;
             if (time < 0f)
             {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.Confined;
                 SceneManager.LoadScene("Title");
             }
         }
