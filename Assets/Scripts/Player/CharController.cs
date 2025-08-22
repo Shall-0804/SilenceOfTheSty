@@ -34,7 +34,7 @@ public class CharController : MonoBehaviour
 
 		speed = normalspeed;
 
-        //LockCursor ();
+      
         character = GetComponent<CharacterController> ();
 		if (Application.isEditor) 
 		{
@@ -60,7 +60,12 @@ public class CharController : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKey(KeyCode.LeftShift) && st >= 0)
+        //オプションブックを読んだら止める
+        if (OptionBookManager.isOpenBook) { return; }
+
+
+
+        if (Input.GetKey(KeyCode.LeftShift) && st >= 0)
 		{
 			st -= stDownSpeed * Time.deltaTime;
 		}
@@ -132,7 +137,7 @@ public class CharController : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-		Debug.Log(other);
+		
         if (other.gameObject.name == "Creature")
         {
             SceneManager.LoadScene("DeathScene");

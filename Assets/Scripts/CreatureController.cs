@@ -51,6 +51,8 @@ public class CreatureController : MonoBehaviour
             CreatureAudio.Stop(); 
             return; 
         }
+        //オプションブックを読んだら止める
+        if (OptionBookManager.isOpenBook) { return; }
 
 
         targetPoint = Player.transform.position;

@@ -23051,6 +23051,8 @@ GameObject:
   - component: {fileID: 7346954113113425514}
   - component: {fileID: 4350189192240780756}
   - component: {fileID: 3850720966520001444}
+  - component: {fileID: 6758150667001583291}
+  - component: {fileID: 9122842844911793155}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -23274,6 +23276,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6758150667001583291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5958150080626845158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91ffd07200d29174fb5b8758d4faf1c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BookReadText: {fileID: 0}
+--- !u!114 &9122842844911793155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5958150080626845158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e3e02da26875294eb255b55738de1e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bookController: {fileID: 0}
 --- !u!1 &5959020053454822492
 GameObject:
   m_ObjectHideFlags: 0

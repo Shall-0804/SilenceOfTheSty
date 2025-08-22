@@ -13,6 +13,11 @@ public class ElectoroHeartManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //オプションブックを読んだら止める
+        if (OptionBookManager.isOpenBook) { return; }
+
+
+
         if (!distanceCreature)
         {
             HeartAnimator.speed = 1;

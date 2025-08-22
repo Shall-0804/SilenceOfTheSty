@@ -8,6 +8,7 @@ TagManager:
   - Item
   - Bullet
   - Door
+  - Book
   layers:
   - Default
   - TransparentFX
