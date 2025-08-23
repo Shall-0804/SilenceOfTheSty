@@ -1,11 +1,15 @@
+using System;
 using UnityEngine;
 
 public class OptionBookManager : MonoBehaviour
 {
     [SerializeField] BookController bookController;
+    [SerializeField] GameObject BookPanel;
 
     public static bool isOpenBook = false;
     bool canReadBook = false;
+
+    public event Action OpenBook;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,6 +29,8 @@ public class OptionBookManager : MonoBehaviour
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.Confined;
                 isOpenBook = true;
+                OpenBook?.Invoke();
+                BookPanel.SetActive(true);
             }
         }
 
@@ -40,6 +46,7 @@ public class OptionBookManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         isOpenBook = false;
+        BookPanel.SetActive(false);
     }
 
 }
