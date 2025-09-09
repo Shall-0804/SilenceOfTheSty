@@ -6,6 +6,11 @@ public class OptionBookManager : MonoBehaviour
     [SerializeField] BookController bookController;
     [SerializeField] GameObject BookPanel;
 
+    [SerializeField] GameObject FirstPage;
+    [SerializeField] GameObject lastPage;
+
+
+
     public static bool isOpenBook = false;
     bool canReadBook = false;
 
@@ -47,6 +52,11 @@ public class OptionBookManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         isOpenBook = false;
         BookPanel.SetActive(false);
+        FirstPage.SetActive(true);
+        lastPage.SetActive(false);
+        canReadBook = false ;
+
+
     }
 
 }
