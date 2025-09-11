@@ -106,10 +106,7 @@ public class CharController : MonoBehaviour
 
 		if (webGLRightClickRotation) 
 		{
-			if (Input.GetKey (KeyCode.Mouse0)) 
-			{
 				CameraRotation (cam, rotX, rotY);
-			}
 		} 
 		else if (!webGLRightClickRotation)
 		{
