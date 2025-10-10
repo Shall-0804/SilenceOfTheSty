@@ -37,7 +37,7 @@ public class ChangeSceneManager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Return))
         {
-            chengeTime = 2.0f;
+            chengeTime = 0.5f;
         }
 
         if(Input.GetKeyDown(KeyCode.UpArrow))
@@ -73,7 +73,7 @@ public class ChangeSceneManager : MonoBehaviour
     public void OnClick()
     {
 
-        chengeTime = 2.0f;
+        chengeTime = 0.5f;
 
     }
 
