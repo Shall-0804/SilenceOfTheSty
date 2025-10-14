@@ -268,8 +268,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec920c63e1d8ad4198465d60ada67b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  normalspeed: 3
   sensitivity: 30
   WaterHeight: 15.5
   cam: {fileID: 1198389065402468}
   webGLRightClickRotation: 1
+  ST: {fileID: 0}
+  PlayerAnimation: {fileID: 0}
+  FlashLight: {fileID: 0}
