@@ -23053,6 +23053,7 @@ GameObject:
   - component: {fileID: 3850720966520001444}
   - component: {fileID: 6758150667001583291}
   - component: {fileID: 9122842844911793155}
+  - component: {fileID: 8377453430713666999}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -23302,6 +23303,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookController: {fileID: 0}
+  BookPanel: {fileID: 0}
+  FirstPage: {fileID: 0}
+  lastPage: {fileID: 0}
+--- !u!114 &8377453430713666999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5958150080626845158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b0b81ecce7ef154ab12cf1b5482a63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5959020053454822492
 GameObject:
   m_ObjectHideFlags: 0
