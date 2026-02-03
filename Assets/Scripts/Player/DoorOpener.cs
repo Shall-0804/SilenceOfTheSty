@@ -20,8 +20,11 @@ public class DoorOpener : MonoBehaviour
     }
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
+       
+
        if (hit.gameObject.tag == "Door")
        {
+            Debug.Log("aa");
             time = 3f;
             BreakKeyText.SetActive(true);
 

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class CharController : MonoBehaviour 
 {
 
-	[SerializeField] float normalspeed = 3.0f;
+	float normalspeed = 5.0f;
     float sprintSpeed = 10.0f;
 	float speed;
 
@@ -101,10 +101,15 @@ public class CharController : MonoBehaviour
        
 
         Vector3 movement = new Vector3 (moveFB, gravity, moveLR);
+        if (movement.magnitude > 1f)
+        {
+            movement = movement.normalized;
+        }
+        movement *= speed;
 
 
 
-		if (webGLRightClickRotation) 
+        if (webGLRightClickRotation) 
 		{
 				CameraRotation (cam, rotX, rotY);
 		} 
