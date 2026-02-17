@@ -58,5 +58,12 @@ public class OptionBookManager : MonoBehaviour
 
 
     }
-
+    //—£‚ê‚½‚Æ‚«‚ÉŠJ‚¯‚È‚­‚·‚é‚½‚ß
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Book")
+        {
+            canReadBook = false;
+        }
+    }
 }

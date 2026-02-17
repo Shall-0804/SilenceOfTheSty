@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3309016}
   - component: {fileID: 2332592}
   - component: {fileID: 6567198}
+  - component: {fileID: 1317101799440105749}
   m_Layer: 0
   m_Name: Barn1_Door_A
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,3 +109,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.3214967, y: 3.1329772, z: 0.14834422}
   m_Center: {x: -1.1603755, y: 1.5569614, z: 0.074555665}
+--- !u!65 &1317101799440105749
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119218}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 0.3, z: 2}
+  m_Center: {x: -1.1603755, y: 0.2, z: 0.074555665}

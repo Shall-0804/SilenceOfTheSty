@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class DoorOpener : MonoBehaviour
@@ -7,6 +8,9 @@ public class DoorOpener : MonoBehaviour
 
     //テキストの自動非表示のための変数
     float time;
+    //音を流すため
+    public event Action OnAudioPlayed;
+
     private void Update()
     {
         if(time <= 0)
@@ -18,24 +22,47 @@ public class DoorOpener : MonoBehaviour
             time -= Time.deltaTime;
         }
     }
-    void OnControllerColliderHit(ControllerColliderHit hit)
+   
+    private void OnTriggerStay(Collider other)
     {
-       
-
-       if (hit.gameObject.tag == "Door")
-       {
-            Debug.Log("aa");
+        if (other.gameObject.tag == "Door")
+        {
+            //Debug.Log("aa");
             time = 3f;
+            //テキスト表示
             BreakKeyText.SetActive(true);
 
-            if(Input.GetKeyDown(KeyCode.V))
+            if (Input.GetKeyDown(KeyCode.V))
             {
+                //AudioPlay
+                OnAudioPlayed?.Invoke();
+
                 //ドアを破壊
-                hit.gameObject.SetActive(false);
+                other.gameObject.SetActive(false);
                 BreakKeyText.SetActive(false);
             }
-            
-       }
+
+        }
     }
-        
+
+
+    //void OnControllerColliderHit(ControllerColliderHit hit)
+    //{
+
+
+    //   if (hit.gameObject.tag == "Door")
+    //   {
+    //        Debug.Log("aa");
+    //        time = 3f;
+    //        BreakKeyText.SetActive(true);
+
+    //        if(Input.GetKeyDown(KeyCode.V))
+    //        {
+    //            //ドアを破壊
+    //            hit.gameObject.SetActive(false);
+    //            BreakKeyText.SetActive(false);
+    //        }
+
+    //   }
+    //}
 }

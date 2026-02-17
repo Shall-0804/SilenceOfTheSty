@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3328684}
   - component: {fileID: 2305130}
   - component: {fileID: 6547868}
+  - component: {fileID: 3603628380730369895}
   m_Layer: 0
   m_Name: Villa2_Door_B
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,3 +109,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9026595, y: 4.860631, z: 0.13696924}
   m_Center: {x: -0.4265431, y: 2.4303155, z: -0.0037533417}
+--- !u!65 &3603628380730369895
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143294}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5, y: 0.3, z: 2}
+  m_Center: {x: -0.4265431, y: 0.2, z: -0.0037533417}

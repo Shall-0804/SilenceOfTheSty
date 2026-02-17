@@ -117114,6 +117114,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.000000015454331
       objectReference: {fileID: 0}
+    - target: {fileID: 6517666, guid: 972aaba145b0af74a808d2d941ab913b, type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -233011,6 +233015,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e3e02da26875294eb255b55738de1e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4287114100381174186 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8377453430713666999, guid: a7ef397a098722e449edc0dc833ac865, type: 3}
+  m_PrefabInstance: {fileID: 9008560022249151428}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931317711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b0b81ecce7ef154ab12cf1b5482a63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!82 &4287114100381174189 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 871658161800409226, guid: a7ef397a098722e449edc0dc833ac865, type: 3}
+  m_PrefabInstance: {fileID: 9008560022249151428}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4611408466638131277 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2549543993030217446, guid: 7b06cfd69b8a71946bd450dac52b6b7d, type: 3}
@@ -233257,6 +233277,18 @@ PrefabInstance:
       propertyPath: Loop
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 871658161800409226, guid: a7ef397a098722e449edc0dc833ac865, type: 3}
+      propertyPath: m_Volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 871658161800409226, guid: a7ef397a098722e449edc0dc833ac865, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 76ca1dfc65cdd0d4fb1f85acb0bd830b, type: 3}
+    - target: {fileID: 871658161800409226, guid: a7ef397a098722e449edc0dc833ac865, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 76ca1dfc65cdd0d4fb1f85acb0bd830b, type: 3}
     - target: {fileID: 1041939755673768723, guid: a7ef397a098722e449edc0dc833ac865, type: 3}
       propertyPath: m_TagString
       value: MainCamera
@@ -233437,6 +233469,14 @@ PrefabInstance:
       propertyPath: PlayerAnimation
       value: 
       objectReference: {fileID: 4017081532471990982}
+    - target: {fileID: 7546439774092946924, guid: a7ef397a098722e449edc0dc833ac865, type: 3}
+      propertyPath: doorOpner
+      value: 
+      objectReference: {fileID: 4287114100381174186}
+    - target: {fileID: 7546439774092946924, guid: a7ef397a098722e449edc0dc833ac865, type: 3}
+      propertyPath: DoorBreakAudio
+      value: 
+      objectReference: {fileID: 4287114100381174189}
     - target: {fileID: 7858935940034227717, guid: a7ef397a098722e449edc0dc833ac865, type: 3}
       propertyPath: m_CullingMode
       value: 0
