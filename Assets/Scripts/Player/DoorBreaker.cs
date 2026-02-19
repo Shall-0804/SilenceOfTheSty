@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class DoorOpener : MonoBehaviour
+public class DoorBreaker : MonoBehaviour
 {
     //ドアを壊すためのテキスト表示
     [SerializeField] GameObject BreakKeyText;

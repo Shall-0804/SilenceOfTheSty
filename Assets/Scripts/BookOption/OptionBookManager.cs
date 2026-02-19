@@ -47,7 +47,7 @@ public class OptionBookManager : MonoBehaviour
 
     public void OnClick()
     {
-        // マウスカーソルを非表示にし、位置を固定
+      
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         isOpenBook = false;

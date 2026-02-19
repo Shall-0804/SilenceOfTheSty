@@ -4,12 +4,12 @@ public class DoorBreakAudioPlayer : MonoBehaviour
 {
     //オーディオ
     [SerializeField] AudioSource DoorBreakAudio;
-    [SerializeField] DoorOpener doorOpner;
+    [SerializeField] DoorBreaker doorBreaker;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        doorOpner.OnAudioPlayed += PlayAudio ;
+        doorBreaker.OnAudioPlayed += PlayAudio ;
     }
 
     // Update is called once per frame
